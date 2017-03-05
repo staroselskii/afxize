@@ -1,4 +1,4 @@
-package main
+package facefinder
 
 import (
 	"image"
@@ -7,7 +7,7 @@ import (
 	"os"
 )
 
-func rectMargin(pct float64, rect image.Rectangle) image.Rectangle {
+func RectMargin(pct float64, rect image.Rectangle) image.Rectangle {
 	width := float64(rect.Max.X - rect.Min.X)
 	height := float64(rect.Max.Y - rect.Min.Y)
 
@@ -22,7 +22,7 @@ func rectMargin(pct float64, rect image.Rectangle) image.Rectangle {
 	)
 }
 
-func loadImage(file string) image.Image {
+func LoadImage(file string) image.Image {
 	reader, err := os.Open(file)
 	if err != nil {
 		log.Fatalf("error loading %s: %s", file, err)
@@ -34,7 +34,7 @@ func loadImage(file string) image.Image {
 	return img
 }
 
-func canvasFromImage(i image.Image) *image.RGBA {
+func CanvasFromImage(i image.Image) *image.RGBA {
 	bounds := i.Bounds()
 	canvas := image.NewRGBA(bounds)
 	draw.Draw(canvas, bounds, i, bounds.Min, draw.Src)

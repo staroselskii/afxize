@@ -9,7 +9,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/zikes/chrisify/facefinder"
+	"github.com/staroselskii/afxize/facefinder"
 
 	"github.com/disintegration/imaging"
 )
@@ -20,7 +20,7 @@ var facesDir = flag.String("faces", "faces", "The directory to search for faces.
 func main() {
 	flag.Parse()
 
-	var chrisFaces FaceList
+	var chrisFaces facefinder.FaceList
 
 	var facesPath string
 	var err error
@@ -44,16 +44,16 @@ func main() {
 
 	finder := facefinder.NewFinder(*haarCascade)
 
-	baseImage := loadImage(file)
+	baseImage := facefinder.LoadImage(file)
 
 	faces := finder.Detect(baseImage)
 
 	bounds := baseImage.Bounds()
 
-	canvas := canvasFromImage(baseImage)
+	canvas := facefinder.CanvasFromImage(baseImage)
 
 	for _, face := range faces {
-		rect := rectMargin(30.0, face)
+        rect := facefinder.RectMargin(30.0, face)
 
 		newFace := chrisFaces.Random()
 		if newFace == nil {
