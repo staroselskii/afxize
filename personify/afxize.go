@@ -8,10 +8,8 @@ import (
 	"github.com/disintegration/imaging"
 )
 
-func Personify(file string, haarCascade *string, personFaces facefinder.FaceList) image.Image {
+func Personify(baseImage image.Image, haarCascade *string, personFaces facefinder.FaceList) image.Image {
 	finder := facefinder.NewFinder(*haarCascade)
-
-	baseImage := facefinder.LoadImage(file)
 
 	faces := finder.Detect(baseImage)
 

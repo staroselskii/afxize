@@ -39,7 +39,9 @@ func main() {
 
 	file := flag.Arg(0)
 
-    var canvas = personify.Personify(file, haarCascade, personFaces)
+	baseImage := facefinder.LoadImage(file)
+
+	var canvas = personify.Personify(baseImage, haarCascade, personFaces)
 
 	jpeg.Encode(os.Stdout, canvas, &jpeg.Options{jpeg.DefaultQuality})
 }
