@@ -7,8 +7,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/staroselskii/afxize/personify"
-	"github.com/staroselskii/afxize/facefinder"
+	"gopkg.in/staroselskii/afxize.v1/personify"
+	"gopkg.in/staroselskii/afxize.v1/facefinder"
 )
 
 var haarCascade = flag.String("haar", "haarcascade_frontalface_alt.xml", "The location of the Haar Cascade XML configuration to be provided to OpenCV.")

@@ -3,7 +3,7 @@ package personify
 import (
 	"image"
 	"image/draw"
-	"github.com/staroselskii/afxize/facefinder"
+	"gopkg.in/staroselskii/afxize.v1/facefinder"
 
 	"github.com/disintegration/imaging"
 )
